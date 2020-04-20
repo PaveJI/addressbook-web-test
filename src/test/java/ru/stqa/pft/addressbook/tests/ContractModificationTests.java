@@ -12,5 +12,7 @@ public class ContractModificationTests extends TestBase{
         app.getContactHelper().fillContactForm(new ContactData("Max", "Korj", "Urala str. 55", "77777777777", "hahaha@mail.com", null), false);
         app.getNavigationHelper().moveToNeed();
         app.getContactHelper().submitContactUpdate();
+
+
     }
 }
