@@ -22,6 +22,9 @@ public class NavigationHelper extends HelperBase{
         }
         click(By.linkText("add new"));
     }
+    public void gotoHome(){
+        click(By.linkText("home"));
+    }
 
     public void gotoHomePage() {
         if (isElementPresent(By.id("maintable"))){
@@ -34,6 +37,6 @@ public class NavigationHelper extends HelperBase{
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
     public void changeContract(){
-        click(By.xpath("//img[@alt='Edit']"));
+        click(By.xpath("//*[@id=\"maintable\"]/tbody/tr[2]/td[8]/a/img"));
     }
 }
