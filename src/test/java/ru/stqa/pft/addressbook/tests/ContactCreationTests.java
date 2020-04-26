@@ -27,11 +27,16 @@ public class ContactCreationTests extends TestBase{
 
 //        Assert. assertEquals(after,before);
         int max = 0;
-        for (ContactData c : after){
-            if(c.getId() > max) {
-                max = c.getId();
+        for (int i = 0; i < after.size(); i++){
+            if(contact.getId() > max) {
+                max = contact.getId();
             }
         }
+//////        for (ContactData c : after){
+//////            if(c.getId() > max) {
+//////                max = c.getId();
+//////            }
+//////        }
         contact.setId(max);
         before.add(contact);
         Assert.assertEquals(new HashSet<Object>(after),new HashSet<Object>(before));

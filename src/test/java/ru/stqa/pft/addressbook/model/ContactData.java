@@ -5,6 +5,21 @@ import java.util.Objects;
 public class ContactData {
 
     private int id;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+
     private String name;
     private String lastName;
     private String address;
@@ -38,24 +53,6 @@ public class ContactData {
         this.mobPhone = mobPhone;
         this.eMail = eMail;
         this.group = group;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(lastName, that.lastName) &&
-                Objects.equals(address, that.address) &&
-                Objects.equals(mobPhone, that.mobPhone) &&
-                Objects.equals(eMail, that.eMail);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, lastName, address, mobPhone, eMail);
     }
 
     public void setId(int id) {
