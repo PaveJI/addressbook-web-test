@@ -7,6 +7,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class ContactCreationTests extends TestBase{
@@ -17,7 +18,7 @@ public class ContactCreationTests extends TestBase{
         List<ContactData> before = app.getContactHelper().getContactList();
 //        int before = app.getContactHelper().getContactCount();
         app.goTo().gotoAddPage();
-        ContactData contact = new ContactData("John", "Silver", "Lenina str. 60a", "89991231212", "pishi@mail.com", "test1");
+        ContactData contact = new ContactData("John", "Silver", null, null, null, null);
         app.getContactHelper().fillContactForm(contact, true);
         app.goTo().moveToNeed();
         app.getContactHelper().submitContactCreation();
@@ -27,18 +28,20 @@ public class ContactCreationTests extends TestBase{
 
 //        Assert. assertEquals(after,before);
         int max = 0;
-        for (int i = 0; i < after.size(); i++){
-            if(contact.getId() > max) {
-                max = contact.getId();
+//        for (int i = 0; i < after.size(); i++){
+//            if(c.getId() > max) {
+//                max = c.getId();
+//            }
+//        }
+        for (ContactData c : after){
+            if(c.getId() > max) {
+                max = c.getId();
             }
         }
-//////        for (ContactData c : after){
-//////            if(c.getId() > max) {
-//////                max = c.getId();
-//////            }
-//////        }
         contact.setId(max);
         before.add(contact);
-        Assert.assertEquals(new HashSet<Object>(after),new HashSet<Object>(before));
+        System.out.println(new HashSet<>(before));
+        System.out.println(new HashSet<>(after));
+        Assert.assertEquals(new HashSet<>(after),new HashSet<>(before));
     }
 }

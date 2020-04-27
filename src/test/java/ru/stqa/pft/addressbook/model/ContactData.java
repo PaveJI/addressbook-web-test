@@ -6,34 +6,12 @@ public class ContactData {
 
     private int id;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(name, that.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
-    }
-
     private String name;
     private String lastName;
     private String address;
     private String mobPhone;
     private String eMail;
     private String group;
-
-    @Override
-    public String toString() {
-        return "ContactData{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
 
     public ContactData(int id, String name, String lastName, String address, String mobPhone, String eMail, String group){
         this.id = id;
@@ -53,6 +31,33 @@ public class ContactData {
         this.mobPhone = mobPhone;
         this.eMail = eMail;
         this.group = group;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", mobPhone='" + mobPhone + '\'' +
+                ", eMail='" + eMail + '\'' +
+                ", group='" + group + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 
     public void setId(int id) {
