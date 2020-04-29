@@ -1,15 +1,15 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static ru.stqa.pft.addressbook.tests.TestBase.app;
 
 public class ContactHelper extends HelperBase {
 
@@ -55,12 +55,18 @@ public class ContactHelper extends HelperBase {
         fillContactForm(contactData, true);
         submitContactCreation();
     }
+    public List<ContactData> initContact(ContactData contact) {
+        fillContactForm(contact, true);
+        app.goTo().moveToNeed();
+       submitContactCreation();
+       return list();
+    }
 
     public boolean isThereAContect() {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<>();
         List<WebElement> elements = driver.findElements(By.name("entry"));
         for (WebElement element : elements){
@@ -68,9 +74,9 @@ public class ContactHelper extends HelperBase {
             int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
             String name = cells.get(2).getText();
             String lastName = cells.get(1).getText();
-            ContactData contact = new ContactData(id, name, lastName, null, null, null, null);
-            contacts.add(contact);
+            contacts.add(new ContactData().withId(id).withName(name).withLastName(lastName));
         }
         return contacts;
     }
+
 }

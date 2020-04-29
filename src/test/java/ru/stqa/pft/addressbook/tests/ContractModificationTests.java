@@ -11,17 +11,15 @@ public class ContractModificationTests extends TestBase{
     @Test
     public void testContractModification(){
         app.goTo().gotoHomePage();
-        List<ContactData> before = app.getContactHelper().getContactList();
-//        int before = app.getContactHelper().getContactCount();
-        if (! app.getContactHelper().isThereAContect()){
-            app.getContactHelper().createContact(new ContactData("Max", "Korj", "Urala str. 55", "77777777777", "hahaha@mail.com", null));
+        List<ContactData> before = app.contact().list();
+        if (! app.contact().isThereAContect()){
+            app.contact().createContact(new ContactData().withName("Max").withLastName("Korj").withAddress("Urala str. 55").withMobPhone("77777777777").witheMail("hahaha@mail.com"));
         }
         app.goTo().changeContract();
-        app.getContactHelper().fillContactForm(new ContactData("Max", "Korj", "Urala str. 55", "77777777777", "hahaha@mail.com", null), false);
+        app.contact().fillContactForm(new ContactData().withName("Max").withLastName("Korj").withAddress("Urala str. 55").withMobPhone("77777777777").witheMail("hahaha@mail.com"),true);
         app.goTo().moveToNeed();
-        app.getContactHelper().submitContactUpdate();
-        List<ContactData> after = app.getContactHelper().getContactList();
-//        int after = app.getContactHelper().getContactCount();
+        app.contact().submitContactUpdate();
+        List<ContactData> after = app.contact().list();
         Assert.assertEquals(after.size(), before.size() -1);
 
         before.remove(1);

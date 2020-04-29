@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class ContactData {
 
-    private int id;
+    private int id = Integer.MAX_VALUE;
 
     private String name;
     private String lastName;
@@ -12,16 +12,6 @@ public class ContactData {
     private String mobPhone;
     private String eMail;
     private String group;
-
-    public ContactData(int id, String name, String lastName, String address, String mobPhone, String eMail, String group){
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.address = address;
-        this.mobPhone = mobPhone;
-        this.eMail = eMail;
-        this.group = group;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -35,17 +25,6 @@ public class ContactData {
     public int hashCode() {
         return Objects.hash(name);
     }
-
-    public ContactData(String name, String lastName, String address, String mobPhone, String eMail, String group){
-        this.id = Integer.MAX_VALUE;
-        this.name = name;
-        this.lastName = lastName;
-        this.address = address;
-        this.mobPhone = mobPhone;
-        this.eMail = eMail;
-        this.group = group;
-    }
-
     @Override
     public String toString() {
         return "ContactData{" +
@@ -59,9 +38,6 @@ public class ContactData {
                 '}';
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
     public int getId() {
         return id;
     }
@@ -88,5 +64,40 @@ public class ContactData {
 
     public String getGroup() {
         return group;
+    }
+
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
+    }
+
+    public ContactData withName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public ContactData withLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public ContactData withMobPhone(String mobPhone) {
+        this.mobPhone = mobPhone;
+        return this;
+    }
+
+    public ContactData witheMail(String eMail) {
+        this.eMail = eMail;
+        return this;
     }
 }
