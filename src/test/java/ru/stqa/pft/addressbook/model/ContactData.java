@@ -18,11 +18,13 @@ public class ContactData {
     public String homePhone;
     public String mobilePhone;
     public String workPhone;
-    private String Firstname;
-    private String Lastname;
-    private String HomePhone;
-    private String MobilePhone;
-    private String WorkPhone;
+    private String allPhones;
+
+//    private String Firstname;
+//    private String Lastname;
+//    public String HomePhone;
+//    public String MobilePhone;
+//    public String WorkPhone;
 
     public ContactData() {
     }
@@ -51,13 +53,13 @@ public class ContactData {
         return eMail;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
+//    public String getFirstname() {
+//        return firstname;
+//    }
+//
+//    public String getLastname() {
+//        return lastname;
+//    }
 
     public String getHomePhone() {
         return homePhone;
@@ -69,6 +71,10 @@ public class ContactData {
 
     public String getWorkPhone() {
         return workPhone;
+    }
+
+    public String getAllPhones() {
+        return allPhones;
     }
 
     @Override
@@ -124,26 +130,33 @@ public class ContactData {
         return this;
     }
 
-    public ContactData withFirstname(String Firstname) {
-        this.Firstname = Firstname;
+    public ContactData withFirstname(String firstname) {
+        this.firstname = firstname;
         return this;
     }
-public ContactData withLastname(String Lastname) {
-        this.Lastname = Lastname;
+public ContactData withLastname(String lastname) {
+        this.lastname = lastname;
         return this;
     }
-public ContactData withHomePhone(String HomePhone) {
-        this.HomePhone = HomePhone;
+
+public ContactData withHomePhone(String homePhone) {
+        this.homePhone = homePhone;
         return this;
     }
-public ContactData withMobilePhone(String MobilePhone) {
-        this.MobilePhone = MobilePhone;
+public ContactData withMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
         return this;
     }
-public ContactData withWorkPhone(String WorkPhone) {
-        this.WorkPhone = WorkPhone;
+public ContactData withWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
         return this;
     }
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "ContactData{" +
@@ -154,8 +167,8 @@ public ContactData withWorkPhone(String WorkPhone) {
                 ", mobPhone='" + mobPhone + '\'' +
                 ", eMail='" + eMail + '\'' +
                 ", group='" + group + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
+//                ", firstname='" + firstname + '\'' +
+//                ", lastname='" + lastname + '\'' +
                 ", homePhone='" + homePhone + '\'' +
                 ", mobilePhone='" + mobilePhone + '\'' +
                 ", workPhone='" + workPhone + '\'' +
