@@ -13,17 +13,18 @@ public class ContactData {
     private String eMail;
     private String group;
 
-    @Override
-    public String toString() {
-        return "ContactData{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", mobPhone='" + mobPhone + '\'' +
-                ", eMail='" + eMail + '\'' +
-                ", group='" + group + '\'' +
-                '}';
+    public String firstname;
+    public String lastname;
+    public String homePhone;
+    public String mobilePhone;
+    public String workPhone;
+    private String Firstname;
+    private String Lastname;
+    private String HomePhone;
+    private String MobilePhone;
+    private String WorkPhone;
+
+    public ContactData() {
     }
 
     public int getId() {
@@ -48,6 +49,26 @@ public class ContactData {
 
     public String getEMail() {
         return eMail;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getHomePhone() {
+        return homePhone;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public String getWorkPhone() {
+        return workPhone;
     }
 
     @Override
@@ -101,5 +122,43 @@ public class ContactData {
     public ContactData witheMail(String eMail) {
         this.eMail = eMail;
         return this;
+    }
+
+    public ContactData withFirstname(String Firstname) {
+        this.Firstname = Firstname;
+        return this;
+    }
+public ContactData withLastname(String Lastname) {
+        this.Lastname = Lastname;
+        return this;
+    }
+public ContactData withHomePhone(String HomePhone) {
+        this.HomePhone = HomePhone;
+        return this;
+    }
+public ContactData withMobilePhone(String MobilePhone) {
+        this.MobilePhone = MobilePhone;
+        return this;
+    }
+public ContactData withWorkPhone(String WorkPhone) {
+        this.WorkPhone = WorkPhone;
+        return this;
+    }
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", mobPhone='" + mobPhone + '\'' +
+                ", eMail='" + eMail + '\'' +
+                ", group='" + group + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", homePhone='" + homePhone + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
+                ", workPhone='" + workPhone + '\'' +
+                '}';
     }
 }
