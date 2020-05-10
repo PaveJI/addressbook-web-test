@@ -26,6 +26,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("address"), contactDate.getAddress());
         type(By.name("mobile"), contactDate.getMobPhone());
         type(By.name("email"), contactDate.getEMail());
+        attach(By.name("photo"), contactDate.getPhoto());
 
         if (creation){
             Assert.assertTrue(isElementPresent(By.name("new_group")));
