@@ -63,6 +63,11 @@
             <artifactId>xstream</artifactId>
             <version>1.4.12</version>
         </dependency>
+        <dependency>
+            <groupId>at.stefangeyer.challonge.serializer</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.1.0</version>
+        </dependency>
     </dependencies>
 </project>
 
