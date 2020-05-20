@@ -12,7 +12,11 @@ public class DbConnectionTest {
     public void testDbConnection(){
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/addressbook?serverTimezone=Europe/Moscow?user=root&password=");
+//            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/addressbook?serverTimezone=Europe/Moscow?" + "user=root&password=");
+//            conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook?serverTimezone=Europe/Moscow?" + "user=root&password=");
+
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook?" + "user=root&password=");
+
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery("SELECT group_id, group_name, group_header, group_footer FROM group_list");
             Groups groups = new Groups();
